@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Witness a send · Local Climb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head><body><main>
+<a class="home" href="../">Local Climb</a>
+
+<h1>Witness this send</h1>
+<p>Someone wants you to confirm their climb. Open this in Local Climb to witness it.</p>
+<p><a class="button" id="open" href="#">Open in Local Climb</a></p>
+<p class="muted">Don't have it? <a href="https://testflight.apple.com/join/bDarGt8Z">Get Local Climb</a>, then scan the code again.</p>
+<script>
+  // The code rides in the #fragment, which browsers never send to the server.
+  var q = new URLSearchParams(location.hash.slice(1));
+  var send = q.get("send"), code = q.get("code");
+  var open = document.getElementById("open");
+  if (send && code && /^[0-9a-f-]{36}$/i.test(send) && /^[A-Za-z0-9_-]{1,200}$/.test(code)) {
+    open.href = "localclimb://witness?send=" + encodeURIComponent(send) + "&code=" + encodeURIComponent(code);
+  } else {
+    open.parentNode.innerHTML = "This code looks incomplete. Ask them to show it again.";
+  }
+</script>
+<footer><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../support/">Support</a></footer>
+</main></body></html>
