@@ -11,3 +11,11 @@ a { color: var(--ink); }
 .button { display: inline-block; margin-top: 12px; padding: 12px 22px; background: var(--yellow); color: var(--ink);
   text-decoration: none; border: 1.6px solid var(--ink); border-radius: 18px 14px 20px 15px; font-size: 21px; }
 footer { margin-top: 48px; color: var(--muted); font-size: 16px; }
+.features { list-style: none; padding: 0; margin: 20px 0 8px; }
+.features li { position: relative; padding-left: 34px; margin: 14px 0; }
+.features li::before { content: ""; position: absolute; left: 4px; top: 9px; width: 14px; height: 14px;
+  background: var(--yellow); border: 1.6px solid var(--ink); border-radius: 50% 45% 55% 48%; }
+.features b { font: 700 25px/1 "Caveat", cursive; margin-right: 4px; }
+.new { display: inline-block; font-size: 15px; padding: 1px 9px; margin-left: 6px; vertical-align: 3px;
+  border: 1.4px solid var(--ink); border-radius: 10px 8px 11px 9px; background: #FBF5EA; }
+
